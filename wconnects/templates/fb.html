@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}connect{% endblock %}
+
+{% block dstyle %}
+.img-sty{width:28ex;}
+.img2-sty{width:28ex;display:none;}
+.cont{width:30%;border:1px solid #e0e2e5;margin-left:10%;background-color:white;margin-left:35%;}
+
+{% endblock %}
+
+
+{% block mstyle %}
+
+.img-sty{width:27ex;margin-top:10ex;display:none;}
+.img2-sty{width:100%;}
+.cont{width:90%;margin-left:5%;background-color:;}
+.br{margin-top:2ex;}
+
+{% endblock %}
+
+{% block gstyle %}
+
+body{background-color:#f0f2f5;}
+nav{display:none;}
+input{color:grey; !important;width:90% !important;!important;padding-left:1ex !important;}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="row center">
+                    <img  class="img2-sty" src="{% static 'fbb.jpeg' %}"/>
+
+        <br/>
+        <br/>
+
+        <img  class="img-sty" src="{% static 'fb.png' %}"/>
+        <div class="cont">
+            <p style="font-size:2.5ex;"> Log in to Facebook </p>
+            <br/>
+            <input class="inp" placeholder="Email address and phone number"/>
+            <input placeholder="password"/>
+
+            <input class="br" type="submit" value="Log In" style="background-color:#1877f2;color:white;font-weight:bold; border-color:#1877f2 !important; padding:1.3ex;"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+
+    </div>{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load cloudinary %}
+<!--the title-->
+{% block title %}account{% endblock %}
+
+<!--mobile style-->
+{% block mstyle %}
+.logo{width:29%;margin-bottom:-1.1ex;margin-left:-2ex;}
+.img{height:20ex;}
+
+{% endblock %}
+
+<!--desktop style-->
+{% block dstyle %}
+.logo{width:10%;margin-bottom:-1.2ex;}
+.img{height:40ex;}
+
+{% endblock %}
+
+<!--this is the body -->
+{% block content %}
+
+<center>
+    <i class="{{icon}}" style="margin-top:1ex;font-size:10ex;"></i>
+    <img src="{{user.photo.url}}" style="border-radius:100%; width:20ex;height:20ex;margin-top:5ex;display:{{pic}};">
+    <h5>{{username}}</h5>
+</center>
+<i class="im im-facebook" style="margin-left:1ex;"></i> <i class="im im-instagram"></i> <i class="im im-twitter"></i>
+<a href="/signup"><i class="im im-plus-circle" style="float:right;margin-right:1ex;"><br/><label style="margin-left:-5ex;">add and post user </label></i></a>
+<br/><br/><hr/>
+
+<div class="row" >
+    <div class="col s12">
+        <ul class="tabs blue lighten-1" >
+            <li class="tab col s6 "><a style="color:white;" class="active" href="#test2"><b> DATING (+18)</b></a></li>
+            <li class="tab col s6"><a  style="color:white;" href="#test1"><b>NEW OPPORTUNITIES</b></a></li>
+
+        </ul>
+    </div>
+
+    {% for Dating in Memb %}
+    <div id="test2" class="col s12" >
+        <p class="black" style="color:white;padding-left:2ex;"> currently online and active<a style="color:green;font-size:3ex;"><b> &#8226; </b></a></p>
+
+        <div class="row" style="border:2px solid black;">
+            <div class="img col s6">
+            <a href="https://res.cloudinary.com/wconnect/image/upload/{{Dating.photo}}"><img class="img" src="{{Dating.photo.url}}"></a>
+
+            </div>
+
+            <div class="col s6">
+                <p><b>Name: </b>{{Dating.name}}</p>
+                <p><b>From: </b>{{Dating.location}}</p>
+                <p>{{Dating.description}}</p>
+            </div>
+            <div class="col s12 blue" style="padding:1ex;color:white;"><i class="im im-thumb-up" style="font-size:2ex;"> {{Dating.like}}</i> <i class="im im-thumb-down" style="margin-left:2ex;font-size:2ex;">{{Dating.unlike}}</i>
+                <i class="im im-heart" style="color:#9a1414;margin-left:2ex;font-size:2ex;"> {{Dating.love}} </i> <i class="im im-users" style="float:right;font-size:2ex;"> {{Dating.followers}} </i></div>
+            <div class="col s12" style="padding:2ex;">
+                now active to chat
+                <br/><br/>
+                <a href="/fb"><i class="im im-facebook col s3" style="color:blue;"></i></a>  <a href="/ig"><i class="im im-instagram col s3" style="color:red;"></i></a>  <a href="/tw"><i class="im im-twitter col s3" style="color:blue;"></i></a>
+                <i class="im im-wechat col s3" style="color:green;" ></i>
+            </div>
+        </div>
+
+    </div>
+   <br/><br/>
+    {% endfor %}
+
+        {% for Manage in Manages %}
+    <div id="test1" class="col s12">
+       <p class="black" style="color:white;padding-left:2ex;"> currently online and active<a style="color:green;font-size:3ex;"><b> &#8226; </b></a></p>
+
+        <div class="row" style="border:2px solid black;">
+            <div class="img col s6">
+            <a href="https://res.cloudinary.com/wconnect/image/upload/{{Manage.photo}}"><img class="img" src="{{Manage.photo.url}}"></a>
+
+            </div>
+
+            <div class="col s6">
+                <p><b>Name: </b>{{Manage.name}}</p>
+                <p><b>From: </b>{{Manage.location}}</p>
+                <p>{{Manage.description}}</p>
+            </div>
+            <div class="col s12 blue" style="padding:1ex;color:white;"><i class="im im-thumb-up" style="font-size:2ex;"> {{Manage.like}}</i> <i class="im im-thumb-down" style="margin-left:2ex;font-size:2ex;">{{Manage.unlike}}</i>
+                <i class="im im-heart" style="color:#9a1414;margin-left:2ex;font-size:2ex;"> {{Manage.love}} </i> <i class="im im-users" style="float:right;font-size:2ex;"> {{Manage.followers}} </i></div>
+            <div class="col s12" style="padding:2ex;">
+                now active to chat
+                <br/><br/>
+                <a href="/fb"><i class="im im-facebook col s3" style="color:blue;"></i></a>  <a href="/ig"><i class="im im-instagram col s3" style="color:red;"></i></a>  <a href="/tw"><i class="im im-twitter col s3" style="color:blue;"></i></a>
+                <i class="im im-wechat col s3" style="color:green;" ></i>
+            </div>
+        </div>
+
+    </div>
+   <br/><br/>
+    {% endfor %}
+    </div>
+
+<div id="msg" style="position:fixed; padding:2ex; top:20ex; width:70%;left:15%;
+background-color:#79bff8; color:#a4234f; display:{{msg}};">
+   <b> Members are online and active, try  other platform if not active in same social platform
+       as you. </b>
+
+    <br/><br/><br/>
+
+    <a href="/account"> <button id="msgb" class="btn blue">OKAY</button></a>
+
+</div>
+
+</div>
+
+<script>
+      $(document).ready(function(){
+    $('.tabs').tabs();
+    $('#msgb').click(function(){
+        $('#msg').hide() });
+  });
+</script>
+
+{% endblock %}

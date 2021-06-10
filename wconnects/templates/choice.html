@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+<!--the title-->
+{% block title %}signup{% endblock %}
+
+{% block gstyle %}
+.im{font-size:250%;color:grey;}
+.im:hover {color:blue;font-size:400%;}
+{% endblock %}
+
+<!--the body -->
+{% block content %}
+<br/>
+<p>choose a platform that you're much acti.ve and where other people can reach easily reach you and relate with you </p>
+<div class="row">
+    <br/><br/>
+    <div class="col s3">
+      <a href="/fb">  <i class="im im-facebook"> </i></a>
+    </div>
+
+        <div class="col s3">
+            <a href="/ig">  <i class="im im-instagram"> </i></a>
+    </div>
+
+        <div class="col s3">
+            <a href="/tw"> <i class="im im-twitter"> </i> </a>
+    </div>
+
+        <div class="col s3">
+        <i class="im im-wechat"> </i>
+    </div>
+</div>
+
+{% endblock %}

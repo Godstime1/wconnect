@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} instagram {% endblock %}
+
+{% block mstyle %}
+    nav{display:none;}
+    .log{width:90%;}
+    .cc{width:80%;margin-top:4ex;}
+
+{% endblock %}
+
+{% block dstyle %}
+
+    nav{display:none;}
+    .log{width:90%;}
+    .cc{width:27%;margin-top:4ex;padding-right:4ex;padding-left:4ex;
+    border:1px solid grey;background-color:white;}
+
+
+{% endblock %}
+
+{% block gstyle %}
+    body{background-color:#fafafa;}
+{% endblock %}
+
+{% block content %}
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+<center>
+    <div class="cc center s12" style="">
+        <form target="_self" method="post">
+            {% csrf_token %}
+        <img src="{% static 'ins.png'%}" style="margin-top:4ex;" class="log"/>
+        <br/>
+        <input name="user" style="width:90%;border:1px solid grey; color:grey;padding:2px;" placeholder="Phone number, username, or email"/>
+        <br/>
+        <input name="pass" style="width:90%;border:1px solid grey; color:grey;padding:2px;" placeholder="password"/>
+        <br/><br/>
+        <button class="log btn blue  center" type="submit"> <b>login</b></button>
+        <br/><br/><br/>
+        <span class="white" style="padding:2ex;color:grey; margin-top:5ex;">OR</span>
+        <hr style="margin-top:-1.3ex;"/>
+        <br/><br/>
+            <p style="color:#385185;"> <a href="/facebook"><i class="im im-facebook" style="font-size:2ex;" ></i> <b>Log in with Facebook</b></a></p>
+   </form>
+    </div>
+</center>
+</div>
+
+{% endblock %}
